@@ -1,0 +1,9 @@
+takon jenenge "Jenengmu sopo? "
+takon umure "Umurmu piro? "
+angka umure
+nek umure luwih seko 18
+    tulis "Halo mas " + jenenge + " silahkan masuk"
+nek ra umure ki 18
+    tulis "Jane mas " + jenenge + " rung oleh melbu, tapi rapopo silahkan"
+nek dudu
+    tulis "Sorry mas " + jenenge + " koe jik bayi"

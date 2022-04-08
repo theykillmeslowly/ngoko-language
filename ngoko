@@ -1,0 +1,121 @@
+#!/usr/bin/python3
+# NGOKO LANGUAGE versi 1.0
+# Author: Muhammad Khidhir Ibrahim (Gtx666Ti)
+
+import sys,re
+class Ngoko:
+    def __init__(self, fileProgram = "", debug=False):
+        self.debug              = debug
+        self.banner             = """### NGOKO-LANG v 1.0 ###\n"""
+        self.endNgoko           = """### END NGOKO-LANG ###"""
+        self.fileProgram        = fileProgram
+    def getCode(self):
+        f = open(self.fileProgram, "r")
+        return f.read().replace("    ", "").replace("  ", "").replace("\t", "").split("\n")
+    def write(self, code):
+        match = re.match(r"tulis (.*)", code)
+        if match:
+            return "print({})\n".format(match.group(1))
+        else:
+            return False
+    def elseCondition(self, code):
+        match = re.match("nek dudu", code)
+        match2 = re.match("nek ora", code)
+        if match or match2:
+            return "else:\n\t"
+        else:
+            return False
+    def inputer(self, code):
+        match = re.match(r"takon ([a-z]+) (.*)", code)
+        if match:
+            return "{} = input({})\n".format(match.group(1), match.group(2))
+        else:
+            return False
+    def setInt(self, code):
+        match = re.match(r"angka\(([a-z]+)\)", code)
+        match2 = re.match(r"angka ([a-z]+)", code)
+        if match:
+            return "{} = int({})\n".format(match.group(1), match.group(1))
+        elif match2:
+            return "{} = int({})\n".format(match2.group(1), match2.group(1))
+        else:
+            return False
+    def ifOperateCondition(self, code):
+        match = re.match(r"nek (.*) ([a-z]+ [a-z]+) (.*)", code)
+        match2 = re.match(r"nek ra ([a-z]+) ki (.*)", code)
+
+        if match:
+            operator = match.group(2)
+            if operator == "luwih seko":
+                operator = ">"
+            elif operator == "kurang seko":
+                operator = "<"
+            elif operator == "luwih tur podo":
+                operator = ">="
+            elif operator == "kurang tur podo":
+                operator = "<="
+            return "if {} {} {}:\n\t".format(match.group(1), operator,match.group(3))
+        elif match2:
+            return "if {} == {}:\n\t".format(match2.group(1),match2.group(2))
+        else:
+            return False
+    def elifOperateCondition(self, code):
+        match = re.match(r"nek ra (.*) ([a-z]+ [a-z]+) (.*)", code)
+        match2 = re.match(r"nek ra (.*) ki (.*)", code)
+        if match:
+            operator = match.group(2)
+            if operator == "luwih seko":
+                operator = ">"
+            elif operator == "kurang seko":
+                operator = "<"
+            elif operator == "luwih tur podo":
+                operator = ">="
+            elif operator == "kurang tur podo":
+                operator = "<="
+            return "elif {} {} {}:\n\t".format(match.group(1), operator,match.group(3))
+        elif match2:
+            return "elif {} == {}:\n\t".format(match2.group(1),match2.group(2))
+        else:
+            return False
+            
+    def declareVar(self, code):
+        match = re.match(r"dadi (.*) ki (.*)", code)
+        if match:
+            return "{} = {}\n".format(match.group(1), match.group(2))
+        else:
+            return False
+    def compile(self):
+        output = self.banner
+        codes = self.getCode()
+        for code in codes:
+            if self.setInt(code):
+                output += self.setInt(code)
+            elif self.inputer(code):
+                output += self.inputer(code)
+            elif self.elseCondition(code):
+                output += self.elseCondition(code)
+            elif self.elifOperateCondition(code):
+                output += self.elifOperateCondition(code)
+            elif self.ifOperateCondition(code):
+                output += self.ifOperateCondition(code)
+            elif self.write(code):
+                output += self.write(code)
+            elif self.declareVar(code):
+                output += self.declareVar(code)
+        output += self.endNgoko
+        #print(output)
+        return output
+    def execute(self):
+        if self.debug:
+            print(self.compile())
+        else:
+            exec(self.compile())
+    def getUsage(self):
+        print("Usage : {} file.ngoko".format(sys.argv[0]))
+if __name__ == '__main__':
+    if len(sys.argv) < 2:
+        ngoko = Ngoko()
+        ngoko.getUsage()
+    else:
+        ngoko = Ngoko(sys.argv[1], debug=True)
+        ngoko.execute()
