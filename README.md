@@ -8,5 +8,5 @@ sudo ./ngokoInstall.sh
 ```
 ### Usage
 ```
-ngoko coba.ngoko
+ngoko ./conto/coba.ngoko
 ```
