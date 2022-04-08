@@ -6,7 +6,6 @@ git clone https://github.com/gtx666ti/ngoko-language
 echo "[*] Changing directory to /opt/ngoko-language"
 cd ngoko-language
 chmod +x ./ngoko
-echo "[*] Add /opt/ngoko-language/ to PATH (Environment variable)"
-echo "export PATH=$PATH:/opt/ngoko-language" >> ~/.bash_profile
-echo "export PATH=$PATH:/opt/ngoko-language" >> ~/.profile
+echo "[*] Copy ngoko to /usr/bin/"
+cp ./ngoko /usr/bin/
 echo "[*] Ngoko Language installed successfully!"
