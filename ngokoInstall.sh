@@ -7,5 +7,6 @@ echo "[*] Changing directory to /opt/ngoko-language"
 cd ngoko-language
 chmod +x ./ngoko
 echo "[*] Add /opt/ngoko-language/ to PATH (Environment variable)"
-echo "PATH=$PATH:/opt/ngoko-language" >> ~/.bash_profile
+echo "export PATH=$PATH:/opt/ngoko-language" >> ~/.bash_profile
+echo "export PATH=$PATH:/opt/ngoko-language" >> ~/.profile
 echo "[*] Ngoko Language installed successfully!"

@@ -20,6 +20,13 @@ class Ngoko:
             return "print({})\n".format(match.group(1))
         else:
             return False
+    def looper(self, code):
+        match = re.match("itung ([0-9]+) tekan ([0-9]+) ning (.*)", code)
+        if match:
+            return "for {} in range({}, {}+1):\n\t".format(match.group(3), match.group(1), match.group(2))
+        else:
+            return False
+        
     def elseCondition(self, code):
         match = re.match("nek dudu", code)
         match2 = re.match("nek ora", code)
@@ -44,7 +51,7 @@ class Ngoko:
             return False
     def ifOperateCondition(self, code):
         match = re.match(r"nek (.*) ([a-z]+ [a-z]+) (.*)", code)
-        match2 = re.match(r"nek ra ([a-z]+) ki (.*)", code)
+        match2 = re.match(r"nek ([a-z]+) ki (.*)", code)
 
         if match:
             operator = match.group(2)
@@ -92,6 +99,8 @@ class Ngoko:
         for code in codes:
             if self.setInt(code):
                 output += self.setInt(code)
+            elif self.looper(code):
+                output += self.looper(code)
             elif self.inputer(code):
                 output += self.inputer(code)
             elif self.elseCondition(code):
@@ -120,5 +129,5 @@ if __name__ == '__main__':
         ngoko = Ngoko()
         ngoko.getUsage()
     else:
-        ngoko = Ngoko(sys.argv[1], debug=True)
+        ngoko = Ngoko(sys.argv[1], debug=False)
         ngoko.execute()
