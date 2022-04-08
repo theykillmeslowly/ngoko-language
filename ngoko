@@ -5,8 +5,10 @@
 import sys,re
 class Ngoko:
     def __init__(self, fileProgram = "", debug=False):
+        self.ver                = "v1.0 BETA"
         self.debug              = debug
-        self.banner             = """### NGOKO-LANG v 1.0 ###\n"""
+        self.version            = "Ngoko Language ({})".format(self.ver)
+        self.banner             = """### NGOKO-LANG ({}) ###\n""".format(self.ver)
         self.endNgoko           = """### END NGOKO-LANG ###"""
         self.fileProgram        = fileProgram
     def getCode(self):
@@ -111,6 +113,7 @@ class Ngoko:
         else:
             exec(self.compile())
     def getUsage(self):
+        print(self.version)
         print("Usage : {} file.ngoko".format(sys.argv[0]))
 if __name__ == '__main__':
     if len(sys.argv) < 2:
