@@ -11,7 +11,7 @@ sudo ./ngokoInstall.sh
 ngoko ./conto/coba.ngoko
 ```
 ### Syntax
-#### Hello World
+#### I. Hello World
 Ngoko:
 ```
 tulis "Woy Dunyo!"
@@ -20,7 +20,7 @@ Python:
 ```
 print("Woy Dunyo!")
 ```
-#### Variable Declaration
+#### II. Variable Declaration
 Ngoko:
 ```
 dadi jenengku ki "Boso Ngoko"
@@ -29,7 +29,7 @@ Python:
 ``` 
 jenengku = "Boso Ngoko"
 ```
-#### If , Else If, Else
+#### III. If , Else If, Else
 Ngoko :
 ```
 nek jenengku ki "Boso Ngoko"
@@ -48,7 +48,7 @@ elif jenengku = "Ngoko Boso":
 else:
     print("Aku dudu Boso Ngoko opo neh Ngoko Boso")
 ```
-#### Operators
+#### IV. Operators
 ```
 'ki' => '=='
 'luwih seko' => '>'
@@ -56,7 +56,7 @@ else:
 'luwih podo' => '>='
 'kurang podo' => '<='
 ```
-#### Looping
+#### V. Looping
 ```
 itung 0 tekan 5 ning i
     tulis i
@@ -76,7 +76,7 @@ dadi a ki "OK"
 itung nek a ki "OK"
     tulis "anjay"
 ```
-### Function
+### VI. Function
 ```
 dinggo gambar(objek)
     tulis "nggambar " + objek
