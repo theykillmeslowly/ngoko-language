@@ -59,6 +59,10 @@ class Ngoko:
             return "else:\n\t"
         else:
             return False
+    def functioner(self, code):
+        match = re.match(r"dinggo (.*)\((.*)\)", code)
+        if match:
+            return "def {}({}):\n\t".format(match.group(1), match.group(2))
     def inputer(self, code):
         match = re.match(r"takon ([a-z]+) (.*)", code)
         if match:
@@ -122,7 +126,9 @@ class Ngoko:
         output = self.banner
         codes = self.getCode()
         for code in codes:
-            if self.looperWhile(code):
+            if self.functioner(code):
+                output += self.functioner(code)
+            elif self.looperWhile(code):
                 output += self.looperWhile(code)
             elif self.setInt(code):
                 output += self.setInt(code)
@@ -140,6 +146,8 @@ class Ngoko:
                 output += self.write(code)
             elif self.declareVar(code):
                 output += self.declareVar(code)
+            else:
+                output += code+"\n"
         output += self.endNgoko
         #print(output)
         return output

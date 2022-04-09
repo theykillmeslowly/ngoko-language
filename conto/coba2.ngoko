@@ -1,3 +1,4 @@
-dadi a ki "OK"
-itung nek a ki "OK"
-    tulis "anjay"
+dinggo gambar(objek)
+    tulis "nggambar " + objek
+
+gambar("barongan") 

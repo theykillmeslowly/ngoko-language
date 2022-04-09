@@ -76,3 +76,16 @@ dadi a ki "OK"
 itung nek a ki "OK"
     tulis "anjay"
 ```
+### Function
+```
+dinggo gambar(objek)
+    tulis "nggambar " + objek
+
+gambar("barongan") 
+```
+Python:
+```
+def gambar(objek):
+    print("nggambar " + objek)
+gambar("barongan)
+```
