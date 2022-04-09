@@ -76,7 +76,7 @@ dadi a ki "OK"
 itung nek a ki "OK"
     tulis "anjay"
 ```
-### VI. Function
+#### VI. Function
 ```
 dinggo gambar(objek)
     tulis "nggambar " + objek
