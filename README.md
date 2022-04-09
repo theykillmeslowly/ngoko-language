@@ -33,11 +33,11 @@ jenengku = "Boso Ngoko"
 Ngoko :
 ```
 nek jenengku ki "Boso Ngoko"
-    tulis "Aku boso ngoko"
+    tulis "Aku Boso Ngoko"
 nek ra jenengku ki "Ngoko Boso"
-    tulis "Aku ngoko boso"
+    tulis "Aku Ngoko Boso"
 nek dudu
-    tulis "Aku dudu boso ngoko opo neh ngoko boso"
+    tulis "Aku dudu Boso Ngoko opo neh Ngoko Boso"
 ```
 Python
 ```
