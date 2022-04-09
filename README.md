@@ -10,3 +10,69 @@ sudo ./ngokoInstall.sh
 ```
 ngoko ./conto/coba.ngoko
 ```
+### Syntax
+#### Hello World
+Ngoko:
+```
+tulis "Woy Dunyo!"
+```
+Python: 
+```
+print("Woy Dunyo!")
+```
+#### Variable Declaration
+Ngoko:
+```
+dadi jenengku ki "Boso Ngoko"
+```
+Python:
+``` 
+jenengku = "Boso Ngoko"
+```
+#### If , Else If, Else
+Ngoko :
+```
+nek jenengku ki "Boso Ngoko"
+    tulis "Aku boso ngoko"
+nek ra jenengku ki "Ngoko Boso"
+    tulis "Aku ngoko boso"
+nek dudu
+    tulis "Aku dudu boso ngoko opo neh ngoko boso"
+```
+Python
+```
+if jenengku = "Boso Ngoko":
+    print("Aku Ngoko Boso")
+elif jenengku = "Ngoko Boso":
+    print("Aku Ngoko Boso")
+else:
+    print("Aku dudu Boso Ngoko opo neh Ngoko Boso")
+```
+#### Operators
+```
+'ki' => '=='
+'luwih seko' => '>'
+'kurang seko' => '<'
+'luwih podo' => '>='
+'kurang podo' => '<='
+```
+#### Looping
+```
+itung 0 tekan 5 ning i
+    tulis i
+```
+Output:
+```
+0
+1
+2
+3
+4
+5
+```
+Infinite Loop
+```
+dadi a ki "OK"
+itung nek a ki "OK"
+    tulis "anjay"
+```

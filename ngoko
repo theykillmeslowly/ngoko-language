@@ -11,6 +11,24 @@ class Ngoko:
         self.banner             = """### NGOKO-LANG ({}) ###\n""".format(self.ver)
         self.endNgoko           = """### END NGOKO-LANG ###"""
         self.fileProgram        = fileProgram
+    def operators(self, operator):
+        if operator == "luwih seko":
+            operator = ">"
+        elif operator == "kurang seko":
+            operator = "<"
+        elif operator == "luwih podo":
+            operator = ">="
+        elif operator == "kurang podo":
+            operator = "<="
+        else:
+            operator = "=="
+        return operator
+    def boolean(self, operator):
+        if data == "tenanan":
+            data = True
+        elif data == "ngapusi":
+            data = False
+        return data
     def getCode(self):
         f = open(self.fileProgram, "r")
         return f.read().replace("    ", "").replace("  ", "").replace("\t", "").split("\n")
@@ -20,13 +38,20 @@ class Ngoko:
             return "print({})\n".format(match.group(1))
         else:
             return False
-    def looper(self, code):
+    def looperWhile(self, code):
+        match = re.match("itung nek ([a-z]+) ([a-z]+) (.*)", code)
+        if match:
+            operator    =  self.operators(match.group(2))
+            condition   =  "{} {} {}".format(match.group(1), operator, match.group(3))
+            return "while({}):\n\t".format(condition)
+        else:
+            return False
+    def looperFor(self, code):
         match = re.match("itung ([0-9]+) tekan ([0-9]+) ning (.*)", code)
         if match:
             return "for {} in range({}, {}+1):\n\t".format(match.group(3), match.group(1), match.group(2))
         else:
             return False
-        
     def elseCondition(self, code):
         match = re.match("nek dudu", code)
         match2 = re.match("nek ora", code)
@@ -59,9 +84,9 @@ class Ngoko:
                 operator = ">"
             elif operator == "kurang seko":
                 operator = "<"
-            elif operator == "luwih tur podo":
+            elif operator == "luwih podo":
                 operator = ">="
-            elif operator == "kurang tur podo":
+            elif operator == "kurang podo":
                 operator = "<="
             return "if {} {} {}:\n\t".format(match.group(1), operator,match.group(3))
         elif match2:
@@ -77,9 +102,9 @@ class Ngoko:
                 operator = ">"
             elif operator == "kurang seko":
                 operator = "<"
-            elif operator == "luwih tur podo":
+            elif operator == "luwih podo":
                 operator = ">="
-            elif operator == "kurang tur podo":
+            elif operator == "kurang podo":
                 operator = "<="
             return "elif {} {} {}:\n\t".format(match.group(1), operator,match.group(3))
         elif match2:
@@ -97,10 +122,12 @@ class Ngoko:
         output = self.banner
         codes = self.getCode()
         for code in codes:
-            if self.setInt(code):
+            if self.looperWhile(code):
+                output += self.looperWhile(code)
+            elif self.setInt(code):
                 output += self.setInt(code)
-            elif self.looper(code):
-                output += self.looper(code)
+            elif self.looperFor(code):
+                output += self.looperFor(code)
             elif self.inputer(code):
                 output += self.inputer(code)
             elif self.elseCondition(code):
@@ -127,7 +154,12 @@ class Ngoko:
 if __name__ == '__main__':
     if len(sys.argv) < 2:
         ngoko = Ngoko()
-        ngoko.getUsage()
-    else:
+        ngoko.getUsage(
+            
+        )
+    elif len(sys.argv) <= 2:
         ngoko = Ngoko(sys.argv[1], debug=False)
+        ngoko.execute()
+    else:
+        ngoko = Ngoko(sys.argv[1], debug=True)
         ngoko.execute()
