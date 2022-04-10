@@ -106,7 +106,7 @@ class Ngoko:
             return False
     def ifOperateCondition(self, code):
         match = re.match(r"nek (.*) ([a-z]+ [a-z]+) (.*)", code)
-        match2 = re.match(r"nek ([a-z]+) ki (.*)", code)
+        match2 = re.match(r"nek (.*) ki (.*)", code)
 
         if match:
             operator = match.group(2)
