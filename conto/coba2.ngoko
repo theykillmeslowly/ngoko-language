@@ -1,4 +1,0 @@
-dinggo gambar(objek)
-    tulis "nggambar " + objek
-
-gambar("barongan") 
