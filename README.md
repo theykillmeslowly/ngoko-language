@@ -109,7 +109,7 @@ def gambar(objek):
 gambar("barongan)
 ```
 #### VII. Data Type
-Set to Integer
+Set to Integer<br/>
 Ngoko:
 ```
 dadi var ki "10"
@@ -120,7 +120,7 @@ Python:
 var = "10"
 var = int(var)
 ```
-Set to String
+Set to String<br/>
 Ngoko:
 ```
 dadi var ki 10
@@ -142,7 +142,7 @@ import requests
 ```
 
 or 
-
+<br/>
 Ngoko:
 ```
 jupuk BeautifulSoup seko bs4
