@@ -1,5 +1,8 @@
+<center>
+<img src="assets/logo.png" style="width:300px;">
+</center>
 # Ngoko (Javanese Programming Language)
-Ngoko is a new programming language. Using "ngoko" (Javanese Language).
+Ngoko is a new programming language. Using "ngoko" (Javanese Language). Made with python
 ### Installation
 ```
 wget https://raw.githubusercontent.com/gtx666ti/ngoko-language/main/ngokoInstall.sh
