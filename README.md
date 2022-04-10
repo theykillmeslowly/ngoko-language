@@ -56,6 +56,13 @@ else:
 'luwih podo' => '>='
 'kurang podo' => '<='
 ```
+or
+```
+'luwih saka' => '>'
+'kurang saka' => '<'
+'luwih pada' => '>='
+'kurang pada' => '<='
+```
 #### V. Looping
 ```
 itung 0 tekan 5 ning i
@@ -80,7 +87,6 @@ itung nek a ki "OK"
 ```
 dinggo gambar(objek)
     tulis "nggambar " + objek
-
 gambar("barongan") 
 ```
 Python:
