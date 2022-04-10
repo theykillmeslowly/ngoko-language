@@ -183,7 +183,7 @@ class Ngoko:
             exec(self.compile())
     def getUsage(self):
         print(self.version)
-        print("Usage : {} file.ngoko".format(sys.argv[0]))
+        print("Usage : {} file.ngoko".format("ngoko"))
 if __name__ == '__main__':
     if len(sys.argv) < 2:
         ngoko = Ngoko()
