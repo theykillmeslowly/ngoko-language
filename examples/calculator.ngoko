@@ -1,4 +1,34 @@
 dinggo banner():
-    tulis "................."
-    tulis "................."
-    tulis "................."
+    tulis " ................"
+    tulis "|   Kalkulator   |"
+    tulis " ................"
+    tulis "|  7  |  8  |  9 |"
+    tulis "|  4  |  5  |  6 |"
+    tulis "|  1  |  2  |  3 |"
+    tulis "|  0  |  +  |  + |"
+    tulis " ................"
+dadi a ki True
+banner()
+itung nek a ki True
+    takon angka1 "Angka ke-1 : "
+    takon operator "Operator (+/-/x/:) : "
+    takon angka2 "Angka ke-2 : "
+    angka(angka1)
+    angka(angka2)
+    nek operator ki "+"
+        dadi hasil e angka1 + angka2
+    nek ra operator ki "-"
+        dadi hasil e angka1 - angka2
+    nek ra operator ki "x"
+        dadi hasil e angka1 * angka2
+    nek ra operator ki ":"
+        dadi hasil e angka1 / angka2
+    nek dudu
+        dadi hasil e "Le milih operator sek bener!"
+    tulisan(hasil)
+    tulis "Hasil e : " + hasil
+    takon meneh "Meneh? (H/o) : "
+    nek meneh ki "o"
+        exit()
+    nek ra meneh ki "O"
+        exit()

@@ -95,3 +95,24 @@ def gambar(objek):
     print("nggambar " + objek)
 gambar("barongan)
 ```
+#### VII. Data Type
+Set to Integer
+```
+dadi var ki "10"
+angka(var)
+```
+Python
+```
+var = "10"
+var = int(var)
+```
+Set to String
+```
+dadi var ki 10
+tulisan(var)
+```
+Python
+```
+var = 10
+var = str(var)
+```

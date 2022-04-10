@@ -65,18 +65,27 @@ class Ngoko:
         if match:
             return "def {}({}):\n".format(match.group(1), match.group(2))
     def inputer(self, code):
-        match = re.match(r"takon ([a-z]+) (.*)", code)
+        match = re.match(r"takon ([a-zA-Z0-9]+) (.*)", code)
         if match:
             return "{} = input({})\n".format(match.group(1), match.group(2))
         else:
             return False
     def setInt(self, code):
-        match = re.match(r"angka\(([a-z]+)\)", code)
-        match2 = re.match(r"angka ([a-z]+)", code)
+        match = re.match(r"angka\(([a-zA-Z0-9]+)\)", code)
+        match2 = re.match(r"angka ([a-zA-Z0-9]+)", code)
         if match:
             return "{} = int({})\n".format(match.group(1), match.group(1))
         elif match2:
             return "{} = int({})\n".format(match2.group(1), match2.group(1))
+        else:
+            return False
+    def setStr(self, code):
+        match = re.match(r"tulisan\(([a-zA-Z0-9]+)\)", code)
+        match2 = re.match(r"tulisan ([a-zA-Z0-9]+)", code)
+        if match:
+            return "{} = str({})\n".format(match.group(1), match.group(1))
+        elif match2:
+            return "{} = str({})\n".format(match2.group(1), match2.group(1))
         else:
             return False
     def ifOperateCondition(self, code):
@@ -119,8 +128,11 @@ class Ngoko:
             
     def declareVar(self, code):
         match = re.match(r"dadi (.*) ki (.*)", code)
+        match2 = re.match(r"dadi (.*) e (.*)", code)
         if match:
             return "{} = {}\n".format(match.group(1), match.group(2))
+        elif match2:
+            return "{} = {}\n".format(match2.group(1), match2.group(2))
         else:
             return False
     def syntax(self,code):
@@ -131,6 +143,8 @@ class Ngoko:
             output += self.looperWhile(code)
         elif self.setInt(code):
             output += self.setInt(code)
+        elif self.setStr(code):
+            output += self.setStr(code)
         elif self.looperFor(code):
             output += self.looperFor(code)
         elif self.inputer(code):
