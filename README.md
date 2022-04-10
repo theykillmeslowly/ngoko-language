@@ -1,5 +1,5 @@
+![alt logo](assets/logo.png)
 
-# Ngoko (Javanese Programming Language)
 Ngoko is a new programming language. Using "ngoko" (Javanese Language). Made with python
 ### Installation
 ```
