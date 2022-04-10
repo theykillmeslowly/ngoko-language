@@ -30,6 +30,22 @@ class Ngoko:
         elif data == "ngapusi":
             data = False
         return data
+    def returner(self,code):
+        match = re.match(r"balekke (.*)",code)
+        if match:
+            return "return {}".format(match.group(1))
+    def importer(self,code):
+        match = re.match(r"jupuk (.*)",code)
+        match2 = re.match(r"jupuk (.*) seko (.*)",code)
+        match3 = re.match(r"jupuk (.*) saka (.*)",code)
+        if match2:
+            return "from {} import {}\n".format(match2.group(2), match2.group(1))
+        elif match3:
+            return "from {} import {}\n".format(match3.group(2), match3.group(1))
+        elif match:
+            return "import {}\n".format(match.group(1))
+        else:
+            return False
     def getCode(self):
         f = open(self.fileProgram, "r")
         return f.read().split("\n")
@@ -141,6 +157,8 @@ class Ngoko:
             output += self.functioner(code)
         elif self.looperWhile(code):
             output += self.looperWhile(code)
+        elif self.importer(code):
+            output += self.importer(code)
         elif self.setInt(code):
             output += self.setInt(code)
         elif self.setStr(code):
@@ -159,6 +177,8 @@ class Ngoko:
             output += self.write(code)
         elif self.declareVar(code):
             output += self.declareVar(code)
+        elif self.returner(code):
+            output += self.returner(code)
         else:
             output += code+"\n"
         return output

@@ -1,0 +1,5 @@
+jupuk BeautifulSoup seko bs4
+
+dinggo bukak(url)
+    dadi r ki requests.get(url)
+    balekke r.text

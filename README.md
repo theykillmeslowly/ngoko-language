@@ -116,3 +116,24 @@ Python
 var = 10
 var = str(var)
 ```
+### Import Module
+```
+jupuk requests
+```
+Python
+```
+import requests
+```
+
+or 
+
+```
+jupuk BeautifulSoup seko bs4
+or
+jupuk BeautifulSoup saka bs4
+
+```
+Python
+```
+from bs4 import BeautifulSoup
+```
