@@ -1,5 +1,6 @@
-jupuk BeautifulSoup seko bs4
+jupuk requests
 
 dinggo bukak(url)
     dadi r ki requests.get(url)
     balekke r.text
+print("asu")

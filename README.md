@@ -39,7 +39,7 @@ nek ra jenengku ki "Ngoko Boso"
 nek dudu
     tulis "Aku dudu Boso Ngoko opo neh Ngoko Boso"
 ```
-Python
+Python:
 ```
 if jenengku = "Boso Ngoko":
     print("Aku Ngoko Boso")
@@ -64,9 +64,15 @@ or
 'kurang pada' => '<='
 ```
 #### V. Looping
+Ngoko:
 ```
 itung 0 tekan 5 ning i
     tulis i
+```
+Python:
+```
+for i in range(0, 5+1):
+    print(i)
 ```
 Output:
 ```
@@ -77,13 +83,20 @@ Output:
 4
 5
 ```
-Infinite Loop
+Infinite Loop:
 ```
 dadi a ki "OK"
 itung nek a ki "OK"
     tulis "anjay"
 ```
+Python:
+```
+a = "OK"
+while(a="OK"):
+    print("anjay")
+```
 #### VI. Function
+Ngoko:
 ```
 dinggo gambar(objek)
     tulis "nggambar " + objek
@@ -97,43 +110,56 @@ gambar("barongan)
 ```
 #### VII. Data Type
 Set to Integer
+Ngoko:
 ```
 dadi var ki "10"
 angka(var)
 ```
-Python
+Python:
 ```
 var = "10"
 var = int(var)
 ```
 Set to String
+Ngoko:
 ```
 dadi var ki 10
 tulisan(var)
 ```
-Python
+Python:
 ```
 var = 10
 var = str(var)
 ```
-### Import Module
+#### Import Module
+Ngoko:
 ```
 jupuk requests
 ```
-Python
+Python:
 ```
 import requests
 ```
 
 or 
 
+Ngoko:
 ```
 jupuk BeautifulSoup seko bs4
 or
 jupuk BeautifulSoup saka bs4
 
 ```
-Python
+Python:
 ```
 from bs4 import BeautifulSoup
+```
+#### Return
+Ngoko:
+```
+balekke "something"
+```
+Python:
+```
+return "something"
 ```

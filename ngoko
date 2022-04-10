@@ -33,7 +33,7 @@ class Ngoko:
     def returner(self,code):
         match = re.match(r"balekke (.*)",code)
         if match:
-            return "return {}".format(match.group(1))
+            return "return {}\n".format(match.group(1))
     def importer(self,code):
         match = re.match(r"jupuk (.*)",code)
         match2 = re.match(r"jupuk (.*) seko (.*)",code)
