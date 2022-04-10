@@ -8,7 +8,7 @@ sudo ./ngokoInstall.sh
 ```
 ### Usage
 ```
-ngoko ./conto/coba.ngoko
+ngoko ./examples/calculator.ngoko
 ```
 ### Syntax
 #### I. Hello World
