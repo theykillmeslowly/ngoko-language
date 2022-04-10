@@ -12,6 +12,51 @@ class Ngoko:
         self.endNgoko           = """### END NGOKO-LANG ###"""
         self.fileProgram        = fileProgram
         self.openGroup          = False
+    def syntax(self,code):
+        output = ""
+        if self.functioner(code):
+            output += self.functioner(code)
+        elif self.looperWhile(code):
+            output += self.looperWhile(code)
+        elif self.importer(code):
+            output += self.importer(code)
+        elif self.setInt(code):
+            output += self.setInt(code)
+        elif self.setStr(code):
+            output += self.setStr(code)
+        elif self.looperFor(code):
+            output += self.looperFor(code)
+        elif self.inputer(code):
+            output += self.inputer(code)
+        elif self.elseCondition(code):
+            output += self.elseCondition(code)
+        elif self.elifOperateCondition(code):
+            output += self.elifOperateCondition(code)
+        elif self.ifOperateCondition(code):
+            output += self.ifOperateCondition(code)
+        elif self.write(code):
+            output += self.write(code)
+        elif self.declareVar(code):
+            output += self.declareVar(code)
+        elif self.returner(code):
+            output += self.returner(code)
+        elif self.mainer(code):
+            output += self.mainer(code)
+        elif self.router(code):
+            output += self.router(code)
+        elif self.flaskLauncher(code):
+            output += self.flaskLauncher(code)
+        else:
+            output += code+"\n"
+        return output
+    def flaskLauncher(self, code):
+        match = re.match(r"aku arep gawe (.*)", code)
+        if match:
+            return "from flask import Flask\n{} = Flask(__name__)\n".format(match.group(1))
+    def router(self,code):
+        match = re.match(r"rute ([a-zA-Z0-9]+) (.*)", code)
+        if match:
+            return "@{}.route({})\n".format(match.group(1), match.group(2))
     def operators(self, operator):
         if operator == "luwih saka" or operator == "luwih seko":
             operator = ">"
@@ -76,10 +121,17 @@ class Ngoko:
             return "else:\n"
         else:
             return False
+    def mainer(self,code):
+        match = re.match(r"jalanke (.*)", code)
+        if match:
+            return "if __name__ == '__main__':\n\t{}.run(debug=True)\n".format(match.group(1))
     def functioner(self, code):
         match = re.match(r"dinggo (.*)\((.*)\)", code)
+        match2 = re.match(r"fungsine (.*)\((.*)\)", code)
         if match:
             return "def {}({}):\n".format(match.group(1), match.group(2))
+        elif match2:
+            return "def {}({}):\n".format(match2.group(1), match2.group(2))
     def inputer(self, code):
         match = re.match(r"takon ([a-zA-Z0-9]+) (.*)", code)
         if match:
@@ -151,37 +203,6 @@ class Ngoko:
             return "{} = {}\n".format(match2.group(1), match2.group(2))
         else:
             return False
-    def syntax(self,code):
-        output = ""
-        if self.functioner(code):
-            output += self.functioner(code)
-        elif self.looperWhile(code):
-            output += self.looperWhile(code)
-        elif self.importer(code):
-            output += self.importer(code)
-        elif self.setInt(code):
-            output += self.setInt(code)
-        elif self.setStr(code):
-            output += self.setStr(code)
-        elif self.looperFor(code):
-            output += self.looperFor(code)
-        elif self.inputer(code):
-            output += self.inputer(code)
-        elif self.elseCondition(code):
-            output += self.elseCondition(code)
-        elif self.elifOperateCondition(code):
-            output += self.elifOperateCondition(code)
-        elif self.ifOperateCondition(code):
-            output += self.ifOperateCondition(code)
-        elif self.write(code):
-            output += self.write(code)
-        elif self.declareVar(code):
-            output += self.declareVar(code)
-        elif self.returner(code):
-            output += self.returner(code)
-        else:
-            output += code+"\n"
-        return output
     def compile(self):
         indent = ""
         output = self.banner

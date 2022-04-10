@@ -163,3 +163,26 @@ Python:
 ```
 return "something"
 ```
+#### Website (Flask Module Required)
+Ngoko:
+```
+aku arep gawe webset
+
+rute webset "/"
+fungsine index()
+    balekke "halo"
+
+jalanke webset
+```
+Python:
+```
+from flask import Flask
+webset = Flask(__name__)
+
+@webset.route("/")
+def index():
+    return "halo"
+
+if __name__ == '__main__':
+        webset.run(debug=True)
+```
