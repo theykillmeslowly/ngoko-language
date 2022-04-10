@@ -1,13 +1,13 @@
 #!/usr/bin/python3
-# NGOKO LANGUAGE versi 1.0
+# NGOKO LANGUAGE versi 1.0.0 BETA
 # Author: Muhammad Khidhir Ibrahim (Gtx666Ti)
 
-import sys,re
+import sys,re,platform
 class Ngoko:
     def __init__(self, fileProgram = "", debug=False):
-        self.ver                = "v1.0 BETA"
+        self.ver                = "1.0.0 BETA"
         self.debug              = debug
-        self.version            = "Ngoko Language ({})".format(self.ver)
+        self.version            = "Ngoko Language {} with Python {}".format(self.ver,platform.python_version())
         self.banner             = """### NGOKO-LANG ({}) ###\n""".format(self.ver)
         self.endNgoko           = """### END NGOKO-LANG ###"""
         self.fileProgram        = fileProgram
